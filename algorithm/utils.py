@@ -1,5 +1,3 @@
-
-
 def normalize_matrix(matrix: [[float]]):
     summary = list(map(
         sum,
@@ -12,3 +10,15 @@ def normalize_matrix(matrix: [[float]]):
         ]
         for row in matrix
     ]
+
+
+def print_matrix(matrix: [[float]]):
+    print()
+    print(
+        '\n'.join(
+            [
+                ' '.join([str(round(el, 2)) for el in row])
+                for row in matrix
+            ]
+        )
+    )
