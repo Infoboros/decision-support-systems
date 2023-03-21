@@ -99,4 +99,10 @@ class AnalyticalHierarchicalProcessor:
                 ]
             )
 
+        print()
+        offset = 1
+        for level_z in Zs:
+            print(' '.join([f'Z{index + offset}={z}' for index, z in enumerate(level_z)]))
+            offset += len(level_z)
+
         return Zs
