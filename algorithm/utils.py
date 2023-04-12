@@ -13,7 +13,6 @@ def normalize_matrix(matrix: [[float]]):
 
 
 def print_matrix(matrix: [[float]]):
-    print()
     print(
         '\n'.join(
             [
@@ -22,3 +21,4 @@ def print_matrix(matrix: [[float]]):
             ]
         )
     )
+    print()

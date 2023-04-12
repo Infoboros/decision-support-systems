@@ -13,17 +13,7 @@ class MatrixProcessor:
         return len(self.matrix)
 
     def get_eigenvalues_and_lmax(self) -> ([float], float):
-        n = self.n
-        avg_geometry = [
-            pow(reduce(operator.mul, row, 1), 1. / n)
-            for row in self.matrix
-        ]
-        sum_avg_geometry = sum(avg_geometry)
-
-        norm_eigenvalues = list(map(
-            lambda geometry: geometry / sum_avg_geometry,
-            avg_geometry
-        ))
+        norm_eigenvalues = self.get_eigenvalues()
 
         sum_column = list(map(sum, zip(*self.matrix)))
 
@@ -33,6 +23,19 @@ class MatrixProcessor:
         ])
 
         return norm_eigenvalues, lmax
+
+    def get_eigenvalues(self):
+        n = self.n
+        avg_geometry = [
+            pow(reduce(operator.mul, row, 1), 1. / n)
+            for row in self.matrix
+        ]
+        sum_avg_geometry = sum(avg_geometry)
+        norm_eigenvalues = list(map(
+            lambda geometry: geometry / sum_avg_geometry,
+            avg_geometry
+        ))
+        return norm_eigenvalues
 
     def get_is(self, lmax: float) -> float:
         return (lmax - self.n) / (self.n - 1)
