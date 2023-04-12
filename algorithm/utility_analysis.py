@@ -53,11 +53,12 @@ class UtilityAnalysis:
         max_cost_sum = sum(alternative['cost'] for alternative in self.alternatives)
         for cost in range(max_cost_sum + 1):
             _, utility, remains = self.get_selected(cost)
-            chart.append({
-                'cost': cost,
-                'utility': utility,
-                'remains': remains
-            })
+            if not remains:
+                chart.append({
+                    'cost': cost,
+                    'utility': utility,
+                    'remains': remains
+                })
 
         return chart
 
