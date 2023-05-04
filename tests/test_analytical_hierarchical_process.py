@@ -1,6 +1,7 @@
 import pytest
 
-from algorithm.analytical_hierarchical_process import MatrixProcessor, AnalyticalHierarchicalProcessor
+from algorithm.analytical_hierarchical_process import AnalyticalHierarchicalProcessor
+from algorithm.matrix import Matrix
 
 
 @pytest.fixture()
@@ -71,7 +72,7 @@ def matr():
 
 
 def test_matrix(matr):
-    processor = MatrixProcessor(matr)
+    processor = Matrix(matr)
     eigenvalues, lmax = processor.get_eigenvalues_and_lmax()
     IS = processor.get_is(lmax)
     OS = processor.get_os(IS)

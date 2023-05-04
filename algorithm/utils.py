@@ -1,3 +1,6 @@
+from tabulate import tabulate
+
+
 def normalize_matrix(matrix: [[float]]):
     summary = list(map(
         sum,
@@ -13,12 +16,5 @@ def normalize_matrix(matrix: [[float]]):
 
 
 def print_matrix(matrix: [[float]]):
-    print(
-        '\n'.join(
-            [
-                ' '.join([str(round(el, 2)) for el in row])
-                for row in matrix
-            ]
-        )
-    )
+    print(tabulate(matrix, tablefmt="rounded_grid"))
     print()

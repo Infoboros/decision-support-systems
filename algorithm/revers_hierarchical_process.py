@@ -1,4 +1,4 @@
-from algorithm.analytical_hierarchical_process import MatrixProcessor
+from algorithm.matrix import Matrix
 from algorithm.utils import print_matrix, normalize_matrix
 
 
@@ -35,7 +35,7 @@ class ReversHierarchicalProcessor:
                 zip(
                     *list(
                         map(
-                            lambda E: MatrixProcessor(E).get_eigenvalues(),
+                            lambda E: Matrix(E).get_eigenvalues(),
                             level
                         )
                     )
