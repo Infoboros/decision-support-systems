@@ -99,7 +99,7 @@ class AnalyticalNetworkProcessor:
         print(sums)
 
         normalized = [
-            element / sums[sum_index]
+            element / sums[sum_index] if sums[sum_index] else 0.0
             for sum_index, cluster in enumerate(ranged)
             for element in cluster
         ]
